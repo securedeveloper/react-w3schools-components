@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A React Components Representation library for W3.CSS framework.",
   "private": false,
-  "main": "build/lib/components/index.js",
-  "types": "build/lib/components/index.d.ts",
+  "main": "dist/lib/components/index.js",
+  "types": "dist/lib/components/index.d.ts",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -24,11 +24,8 @@
   },
   "homepage": "https://github.com/securedeveloper/react-w3schools-components#readme",
   "dependencies": {
-    "jest-cli": "^22.4.3",
     "react": "^16.3.1",
-    "react-docgen-typescript": "^1.2.6",
-    "react-dom": "^16.3.1",
-    "react-scripts-ts": "2.14.0"
+    "react-dom": "^16.3.1"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.9",
@@ -40,14 +37,15 @@
     "cpx": "^1.5.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "jest-cli": "^22.4.3",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
+    "react-docgen-typescript": "^1.2.6",
+    "react-scripts-ts": "^2.14.0",
     "react-styleguidist": "^7.0.5",
     "typescript": "^2.8.1"
   },
   "scripts": {
-    "start-js": "react-scripts-ts start",
-    "start": "npm-run-all -p watch-sass-to-css start-js",
     "build-js": "react-scripts-ts build",
     "build": "npm-run-all -p build-sass-to-css build-js",
     "build-lib": "tsc && npm run build-sass-to-css && npm run copy-css-to-lib",
@@ -58,12 +56,12 @@
     "styleguide-build": "styleguidist build",
     "deploy-docs": "npm run styleguide-build && gh-pages -d styleguide",
     "copy-css-to-lib": "npm-run-all -s copy-base-css copy-component-css",
-    "copy-base-css": "cpx \"./src/**/*.css\" ./build/lib/",
-    "copy-component-css": "cpx \"./src/components/**/*.css\" ./build/lib/components",
+    "copy-base-css": "cpx \"./src/**/*.css\" ./dist/lib/",
+    "copy-component-css": "cpx \"./src/components/**/*.css\" ./dist/lib/components",
     "build-sass-to-css": "node-sass-chokidar src/ -o src/",
     "watch-sass-to-css": "node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "files": [
-    "build/lib"
+    "dist/lib"
   ]
 }
